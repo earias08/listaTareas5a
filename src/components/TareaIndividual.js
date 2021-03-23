@@ -1,10 +1,8 @@
 import React from 'react';
 
-const TareaIndividual = () => {
+const TareaIndividual = (props) => {
     return (
-        <div>
-            
-        </div>
+        <li className="list-group-item">{props.nombreTarea}</li>
     );
 };
 
