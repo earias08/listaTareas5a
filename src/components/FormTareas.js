@@ -23,6 +23,13 @@ const FormTareas = () => {
     setTarea("");
   };
 
+  const borrarTarea = (nombreTarea) =>{
+    let listaTareasModificado = tareas.filter((unaTarea)=> unaTarea !== nombreTarea);
+    console.log(listaTareasModificado);
+    // actualizar el state
+    setTareas(listaTareasModificado);
+  }
+
   return (
     <Fragment>
       <div className="container my-5 d-flex justify-content-center">
@@ -44,7 +51,7 @@ const FormTareas = () => {
       </div>
       <section className='container w-50 my-5'>
         {/* invoco al componente lista de tareas */}
-        <ListaTarea tareas={tareas}></ListaTarea>
+        <ListaTarea tareas={tareas} borrarTareaIndividual={borrarTarea}></ListaTarea>
       </section>
     </Fragment>
   );

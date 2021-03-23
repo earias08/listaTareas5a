@@ -10,7 +10,7 @@ const ListaTarea = (props) => {
     <ul className="list-group">
       {/* aqui ya es html */}
       {props.tareas.map((dato, indice) => (
-        <TareaIndividual nombreTarea={dato} key={indice}></TareaIndividual>
+        <TareaIndividual nombreTarea={dato} key={indice} borrarTarea={props.borrarTareaIndividual}></TareaIndividual>
       ))}
     </ul>
   );
