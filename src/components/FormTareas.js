@@ -1,11 +1,27 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import ListaTarea from "./ListaTarea";
 
 const FormTareas = () => {
   // aqui escribo codigo de js
+  // traer datos del localstorage
+  let tareasLS = JSON.parse(localStorage.getItem('tareasKey'));
   // crear un state
-  const [tareas, setTareas] = useState([]);
+  const [tareas, setTareas] = useState(tareasLS);
   const [tarea, setTarea] = useState("");
+
+  // ciclo de vida de un componente
+  useEffect(()=>{
+    // console.log(tareasLS);
+    if(tareasLS){
+      // el localstorage tiene algo y tengo que actualizar sus datos
+      console.log('actualizar LS');
+      localStorage.setItem('tareasKey', JSON.stringify(tareas))
+    }else{
+      console.log('el LS no tiene nada');
+      localStorage.setItem('tareasKey', JSON.stringify([]));
+    }
+
+  },[tarea, tareas]);
 
   // const guardarTarea = (e) => {
   //     // obtengo el value del input
